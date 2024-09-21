@@ -7,16 +7,13 @@ const UserForm = () => {
     email: "",
   };
 
-  
   const validate = (values) => {
     const errors = {};
 
-    
     if (!values.name.trim()) {
       errors.name = "Name is required.";
     }
 
-    
     if (!values.email) {
       errors.email = "Email is required.";
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
@@ -36,7 +33,7 @@ const UserForm = () => {
       <h2>User Input Form</h2>
       <Formik
         initialValues={initialValues}
-        validate={validate} 
+        validate={validate}
         onSubmit={handleSubmit}
       >
         {({ isSubmitting }) => (
@@ -44,13 +41,13 @@ const UserForm = () => {
             <div>
               <label>
                 Name:
-                <Field
-                  type="text"
-                  name="name"
-                  placeholder="Enter your name"
-                />
+                <Field type="text" name="name" placeholder="Enter your name" />
               </label>
-              <ErrorMessage name="name" component="div" style={{ color: "red" }} />
+              <ErrorMessage
+                name="name"
+                component="div"
+                style={{ color: "red" }}
+              />
             </div>
             <div>
               <label>
@@ -61,7 +58,11 @@ const UserForm = () => {
                   placeholder="Enter your email"
                 />
               </label>
-              <ErrorMessage name="email" component="div" style={{ color: "red" }} />
+              <ErrorMessage
+                name="email"
+                component="div"
+                style={{ color: "red" }}
+              />
             </div>
             <button type="submit" disabled={isSubmitting}>
               Submit

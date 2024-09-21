@@ -13,7 +13,9 @@ const Fetch = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://jsonplaceholder.typicode.com/users");
+        const response = await axios.get(
+          "https://jsonplaceholder.typicode.com/users"
+        );
         setData(response.data);
         setLoading(false);
       } catch (err) {
@@ -36,7 +38,10 @@ const Fetch = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://jsonplaceholder.typicode.com/users", newUser);
+      const response = await axios.post(
+        "https://jsonplaceholder.typicode.com/users",
+        newUser
+      );
       setData([...data, response.data]);
       setUser({ name: "", email: "" });
     } catch (err) {
@@ -54,8 +59,6 @@ const Fetch = () => {
 
   return (
     <div>
-
-
       <h2>Add New User</h2>
       <form onSubmit={handleFormSubmit}>
         <label>
